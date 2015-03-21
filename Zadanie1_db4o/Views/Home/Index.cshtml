@@ -1,0 +1,55 @@
+﻿@model List<Zadanie1_db4o.Models.IndexViewModel>
+      
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.ActionLink("Dodaj Studenta", "Create", null, new {
+    @class="btn btn-primary"
+})
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Imię Studenta
+            </th>
+            <th>
+                Nazwisko Studenta
+            </th>
+            <th>
+                Nr Indeksu
+            </th>
+            <th>
+                Ilość Telefonów
+            </th>          
+            <th>
+                
+            </th>   
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Imie
+                </td>
+                <td>
+                    @item.Nazwisko
+                </td>
+                <td>
+                    @item.StudentId
+                </td>
+                <td>
+                    @item.IloscTelefonow
+                </td>
+                <td>
+                    @Html.ActionLink("Szczegoly", "Szczegoly", "Home", new
+               {
+                   id=@item.StudentId
+               },null)
+                </td>
+            </tr>
+        }
+    </tbody>  
+       
+</table>

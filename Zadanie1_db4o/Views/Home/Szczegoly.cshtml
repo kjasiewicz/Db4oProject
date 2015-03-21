@@ -1,0 +1,50 @@
+﻿@model Zadanie1_db4o.Infrastructure.Student
+
+@{
+    ViewBag.Title = "Szczegoly";
+}
+
+<h2>Szczegóły</h2>
+
+<p>Imie: @Model.Imie</p>
+<p>Nazwisko: @Model.Nazwisko</p>
+<p>Adres: @Model.Adres.Miasto, @Model.Adres.KodPocztowy, @Model.Adres.Ulica @Model.Adres.NrDomu</p>
+<p>Nr Albumu: @Model.StudentId</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Nr Telefonu
+            </th>
+            <th>
+                Operator
+            </th>
+            <th>
+                Typ
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Telefon)
+        {
+            <tr>
+                <td>
+                    @item.NumerTelefonu
+                </td>
+                <td>
+                    @item.NazwaOperatora
+                </td>
+                <td>
+                    @(item.CzyKomorkowy==true?"Komórkowy":"Stacjonarny")
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Edytuj", "EdytujDane", new { id = Model.StudentId }, new {@class="btn btn-default" }) |
+    @Html.ActionLink("Wróć do listy", "Index",null, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Usuń", "Usun", new { id = Model.StudentId }, new { @class = "btn btn-danger" }) |
+</p>

@@ -1,0 +1,21 @@
+﻿@model Zadanie1_db4o.Models.DeleteViewModel
+           
+
+@{
+    ViewBag.Title = "Usun";
+}
+
+
+<h3>Czy na pewno chcesz usunąć tego studenta?</h3>
+<p>@Model.Imie @Model.Nazwisko @Model.StudentId</p>
+<div>   
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id",Model.StudentId)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
