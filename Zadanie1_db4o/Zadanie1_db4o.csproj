@@ -124,8 +124,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Core.cs" />
+    <Compile Include="Models\AddPhoneViewModel.cs" />
     <Compile Include="Models\CreateViewModel.cs" />
+    <Compile Include="Models\DeletePhoneViewModel.cs" />
     <Compile Include="Models\DeleteViewModel.cs" />
+    <Compile Include="Models\EditPhoneViewModel.cs" />
     <Compile Include="Models\EditViewModel.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +183,9 @@
     <Content Include="Views\Home\Usun.cshtml" />
     <Content Include="Views\Home\EdytujDane.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\AddPhone.cshtml" />
+    <Content Include="Views\Home\EditPhone.cshtml" />
+    <Content Include="Views\Home\DeletePhone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

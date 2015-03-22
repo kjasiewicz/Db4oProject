@@ -22,6 +22,9 @@
             <th>
                 Typ
             </th>
+            <th>
+                
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -37,8 +40,18 @@
                 <td>
                     @(item.CzyKomorkowy==true?"Komórkowy":"Stacjonarny")
                 </td>
+                <td>
+                    @Html.ActionLink("Edytuj", "EditPhone", new { id = item.NumerTelefonu }, new {@class="btn btn-warning" })
+                    @Html.ActionLink("Usuń", "DeletePhone", new { id = item.NumerTelefonu }, new { @class = "btn btn-danger" })
+                </td>
+                
             </tr>
         }
+        <tr>
+            <td>
+                @Html.ActionLink("Dodaj telefon", "AddPhone", new { id = Model.StudentId }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
 
     </tbody>
 </table>

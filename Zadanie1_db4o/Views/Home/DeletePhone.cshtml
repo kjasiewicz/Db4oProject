@@ -1,0 +1,32 @@
+﻿@model Zadanie1_db4o.Models.DeletePhoneViewModel
+
+@{
+    ViewBag.Title = "DeletePhone";
+}
+
+<h2>DeletePhone</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumerTelefonu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumerTelefonu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x=>x.NumerTelefonu)
+        @Html.HiddenFor(x=>x.StudentId)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,11 +1,23 @@
 ﻿@model List<Zadanie1_db4o.Models.IndexViewModel>
-      
+
 @{
     ViewBag.Title = "Home Page";
 }
-@Html.ActionLink("Dodaj Studenta", "Create", null, new {
-    @class="btn btn-primary"
+@Html.ActionLink("Dodaj Studenta", "Create", null, new
+{
+    @class = "btn btn-primary"
 })
+@using (Html.BeginForm("Search","Home",FormMethod.Post))
+{
+    <div class="pull-right">
+        @Html.TextBox("wyszukaj", null, new
+    {
+    @class = "form-control pull-left"
+    })
+        <input type="submit" class="btn btn-primary pull-left" value="Wyszukaj" />
+    </div>
+}
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -20,12 +32,12 @@
             </th>
             <th>
                 Ilość Telefonów
-            </th>          
+            </th>
             <th>
-                
-            </th>   
+
+            </th>
         </tr>
-        </thead>
+    </thead>
     <tbody>
         @foreach (var item in Model)
         {
@@ -45,11 +57,11 @@
                 <td>
                     @Html.ActionLink("Szczegoly", "Szczegoly", "Home", new
                {
-                   id=@item.StudentId
-               },null)
+                   id = @item.StudentId
+               }, null)
                 </td>
             </tr>
         }
-    </tbody>  
-       
+    </tbody>
+
 </table>
